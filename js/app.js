@@ -43,3 +43,9 @@ app.directive('weatherStatus', function (){
         }
     }
 });
+
+app.filter('convertToF', function () {
+    return function(kelvin) {
+        return (((kelvin - 273.15) * 1.8) + 32).toFixed(0)
+    }
+});

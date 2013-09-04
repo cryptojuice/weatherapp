@@ -15,7 +15,7 @@
         </header>
         <div>
             <h1>{{liveData.data.name}}</h1>
-            <p>Current Temp: {{ (liveData.data.main.temp - 273.15) * 1.8 + 32 | number:0 }}° F</p>
+            <p>Current Temp: {{ liveData.data.main.temp | convertToF }}° F</p>
             <img src="img/clear01.png"/>
             <p><img src="img/cloud1.png"/>{{liveData.data.weather[0].main}}</p>
         </div>
