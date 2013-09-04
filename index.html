@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="weatherApp">
+    <head>
+        <link href='css/reset.css' rel='stylesheet' type='text/css'>
+        <link href='css/style.css' rel='stylesheet' type='text/css'>
+    </head>
+    <body ng-controller="TestCtrl" weather-status="{{liveData.data.weather[0].main}}">
+        <header>
+            <div class="nav">
+                <div class="navinner">
+                    <input ng-submit="updateWeather()" class="form-control" type='text' placeholder="City/State/Zip" ng-model='location'></input>
+                    <button type="button" class="btn btn-sm btn-primary" ng-click='updateWeather()'>Search Weather</button>
+                </div>
+            </div>
+        </header>
+        <div>
+            <h1>{{liveData.data.name}}</h1>
+            <p>Current Temp: {{ (liveData.data.main.temp - 273.15) * 1.8 + 32 | number:0 }}° F</p>
+            <img src="img/clear01.png"/>
+            <p><img src="img/cloud1.png"/>{{liveData.data.weather[0].main}}</p>
+        </div>
+
+        <script src="bower_components/jquery/jquery.min.js"></script>
+        <script src="bower_components/angular-1.1.x/angular.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>
